@@ -1,0 +1,250 @@
+:root{
+  --font-main: "Electrolize", sans-serif;
+  --font-size-large: 1.8rem;
+  --font-size-regular: 1.2rem;
+  --font-size-small: 1rem;
+  --pokemon-blue: rgb(68, 89, 147);
+  --pokemon-yellow:rgb(242, 198, 69);
+  --pokemon-dark-shadow:rgb(124, 174, 201);
+  --pokemon-light-shadow: rgb(166, 202, 219);
+  --pokemon-info-font-color: black;
+
+  --normal: rgb(202, 152, 167);
+  --fire: rgb(253, 76, 90); 
+  --water: rgb(134, 168, 252);
+  --grass: rgb(39, 203, 78);
+  --electric: rgb(251, 251, 114);
+  --ice: rgb(215, 240, 250);
+  --fighting: rgb(239, 97, 56);
+  --poison: rgb(155, 105, 217);
+  --ground: rgb(110, 73, 31);
+  --flying: rgb(147, 178, 199);
+  --psychic: rgb(248, 28, 145);
+  --bug: rgb(59, 153, 80);
+  --rock: rgb(139, 62, 33);
+  --ghost: rgb(144, 103, 144);
+  --dragon: rgb(98, 202, 217);
+  --dark: rgb(90, 89, 121);
+  --steel: rgb(66, 189, 148);
+  --fairy: rgb(234, 19, 105);}
+
+*{
+  box-sizing: border-box;
+  font-family: var(--font-main);
+  font-size: var(--font-size-regular);
+  font-weight: var(--font-weight-regular); 
+  color: var(--pokemon-blue)
+}
+
+*::selection{
+  background-color: var(--pokemon-yellow);
+}
+
+
+body{
+  max-width: 800px;
+  margin: auto;
+  padding-top: 30px;
+  overflow-x: hidden;
+}
+
+
+#container{
+  width: 90%;
+  margin: 10px auto 0 auto;
+}
+
+form{
+  text-align: center;
+}
+
+form label, form input, form button{
+  display: block;
+  margin: 10px auto 10px auto;
+}
+
+form label{
+  font-size: var(--font-size-large) ;
+}
+
+form input{
+  text-align: center;
+  width: 300px;
+}
+
+form button{
+  width: 80px;
+  height: 30px;
+  font-size: var(--font-size-small);
+  font-weight: 800;
+  border: none;
+  background-color: var(--pokemon-yellow);
+  color: var(--pokemon-blue);
+  border-radius: 34px;;
+}
+form button:active{
+  background-color: var(--pokemon-blue);
+  color: var(--pokemon-yellow)
+}
+form button:hover{
+  cursor: pointer;
+}
+
+
+/* slider */
+
+
+/* container */
+#pokedex-container{
+  width: 100%;
+  height: 487px;
+  display: grid;/* should be grid not block */
+  grid-template-columns: 42% 58%;
+  grid-template-rows: 10% 90%;
+  margin: 80px 0 0 0;
+}
+
+#name-container{
+  font-size: var(--font-size-large);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  grid-column: 1 / 3;
+  grid-row: 1 / 2;
+  margin: 0;
+}
+
+#pokemon-name, #pokemon-id{
+  font-size: var(--font-size-large);
+  font-weight: 800;
+  color: var(--pokemon-info-font-color);
+  margin: 0 7px 0 7px;
+}
+
+#image-container, #right-side{
+  grid-row: 2 / 3;
+}
+
+/* left side */
+#image-container {
+  background-color: green;
+  grid-column: 1 / 2;
+  position: relative;
+} 
+
+
+
+img{
+  position: absolute;
+  left: 0;
+  top: 20px;
+  width: 100%;
+}
+
+#w-h-container{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 35px;
+}
+
+#weight, #height{
+  position: static !important;
+  margin: 0 8px 0 8px!important;
+  font-size: var(--font-size-small) !important;
+}
+
+#image-container {
+  background-color: white;
+}
+
+#image-container p{
+  display: inline-block;
+  color: var(--pokemon-info-font-color);
+  font-weight: 800;
+  margin: 0;
+  position: absolute;
+  bottom: 40px;
+}
+
+#types{
+  position: absolute;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  bottom: 70px;
+  width: 100%;
+}
+
+@media screen and (max-width: 500px){
+  #weight, #height{
+      margin: 0 !important;
+  }
+  #w-h-container{
+      bottom: 40px;
+  }
+  #types{
+      bottom: 100px;
+  }
+}
+
+
+#types div{
+  width: 120px;
+  height: 38px;
+  margin: 5px;
+  border-radius: 19px;
+  background-color: var(--type);
+  position:relative;
+  text-align: center;
+}
+
+#types div p{
+  position: absolute;
+  top: 5px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  font-weight: 400;
+}
+
+
+/* right side */
+#right-side{
+  grid-column: 2 / 3;
+}
+
+#stat-title{
+  width: 100%;
+  color: var(--pokemon-info-font-color);
+  font-weight: 800;
+  text-align: center;
+  margin: 0;
+}
+
+.stat-row-container p{
+  width: 100%;
+  text-align: right;
+  padding-right: 10px;
+  margin: 0 0 0 0;
+}
+
+.bar-container{
+  width: 95%;
+  height: 35px;
+  margin: auto;
+  border: 3px solid var(--pokemon-blue);
+}
+
+.stat-bars{
+  width: var(--bar-value);
+  height: 100%;
+  background-color: var(--pokemon-yellow);
+}
+
+

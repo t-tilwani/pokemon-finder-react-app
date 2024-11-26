@@ -1,0 +1,59 @@
+/* :root{
+    --slide-count: 12;
+} */
+
+#pokemon-slider-container{
+    height: 220px;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+    z-index: -1;
+    position: relative;
+}
+
+  
+#pokemon-slider-container::after{
+    content: "";
+    margin: auto;
+    background-image: linear-gradient(90deg,white 5%, transparent, white 95%);
+    position: absolute;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 1;
+}
+
+  
+#slide-track{
+    width: calc(200px * var(--slide-count));
+    height: 100%;
+    display: flex;
+    align-items: center;
+    animation: scroll 45s linear infinite;
+    transition: transform 0.5s ease;
+}
+  
+  
+@keyframes scroll{
+    0%{
+        transform: translateX(0)
+    }
+    100%{
+        transform: translateX(calc(-200px * (var(--slide-count) / 2)))
+    }
+}
+
+  
+.slide-el{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+
+.slide-img{
+    position: static;
+}
+  
